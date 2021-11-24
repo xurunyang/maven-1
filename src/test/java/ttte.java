@@ -26,6 +26,7 @@ public class ttte {
     }
     @Test
     public void uueu(){
-        System.out.println();
+        System.out.println("我是pull下来的");
+        
     }
 }
