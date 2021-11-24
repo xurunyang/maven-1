@@ -17,6 +17,6 @@ public class JdbcUtils {
     return sqlSessionFactory;}
     public static String sql(){
         return "测试git提交切换版本,当我们提交本地库之后代码名会变成黑色 当我们改动代码时" +
-                "代码名会变成蓝色表示有改动但未提交";
+                "代码名会变成蓝色表示有改动但未提交"+"该内容由hot-fix分支提交 其他分支可以合并";
     }
 }
