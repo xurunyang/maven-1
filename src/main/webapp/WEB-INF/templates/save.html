@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/save}">
+    名字<input type="text" name="name" ><br>
+    账户余额 <input type="text" name="money" >
+    <input type="submit" value="保存">
+</form>
+<a th:href="@{/selectwhole}">查看所有账户</a>
+</body>
+</html>

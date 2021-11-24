@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--只需要修改properties配置文件即可-->
+    <properties resource="jdbc.properties">
+
+    </properties>
+    <!--关于settings标签的用法与说明 setting标签要声明在properties后
+    关于setting标签的name="mapUnderscoreToCamelCase"说明 这是驼峰检测 设置为true后开始检测
+    我们知道数据库表的字段大多都有下划线例如last_name 而我们需要创建对应特定表的特定javabaen
+    该javabean的数据名需要和表的字段名相匹配 但是在javabean中的属性并不能设置为带下划线的
+    所以我们写sql语句时总是需要起别名 但是有了name="mapUnderscoreToCamelCase"属性后我们就不需要了
+    由于数据库的字段驼峰规则为下划线后一个字母 而java的为大写字母 该属性让两者相匹配了
+    也就是数据库表字段的驼峰可以映射为bean属性的驼峰 例：数据库last_name对应bean属性lastName N大写-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/><!--开启驼峰命名 例：last_name >lastName-->
+        <setting name="useActualParamName" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/><!--开启懒加载 对应分步查询-->
+        <setting name="aggressiveLazyLoading" value="false"/><!--关闭全加载 也就是使用按需加载-->
+    </settings>
+
+    <!--在标签environments里我们还可以不止连接一个数据库 只要配置数据源 指定语句操作指定的数据库-->
+   <!-- <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>-->
+<mappers>
+    <mapper resource="mapper/AcconutMapper.xml"></mapper>
+</mappers>
+</configuration>

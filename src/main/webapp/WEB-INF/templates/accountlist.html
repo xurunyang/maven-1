@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>money</th>
+    </tr>
+
+    <tr th:each="account:${list}">
+        <td th:text="${account.id}"></td>
+        <td th:text="${account.name}"></td>
+        <td th:text="${account.money}"></td>
+    </tr>
+</table>
+<a th:href="@{gosave}">添加用户</a>
+</body>
+</html>
